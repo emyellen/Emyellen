@@ -1,3 +1,36 @@
-<p>Hallo dit is een p tag</p>
-<p>deze komen op losse regels</p>
-<p>Dit is een linkie <a href="https://google.com">google.com</a></p>
+<body>
+    <div id="lijst">
+        <p>Hallo dit is een p tag</p>
+        <p>deze komen op losse regels</p>
+        <p>Dit is een linkie <a href="https://google.com">google.com</a></p>
+    </div>
+    <button onClick="element_toevoegen()" >nieuw element</button>
+</body>
+<script>
+    var tweede_element = document.getElementsByTagName("p")[1]
+
+    // Woordenlijsten
+    var dieren = ["koe", "geit", "varken", "kat", "ooievaar", "giraffe", "olifant"] 
+    var werkwoorden = ["eet", "haat", "rent", "zwem", "zit", "masseert"] 
+    var dingen = ["gras", "bier", "fles", "tafel",]
+    
+    // samenstel functie
+
+    function maak_zin(){
+        var randomdiergetal=Math.floor(Math.random()*dieren.length)
+        var wwoord=Math.floor(Math.random()*werkwoorden.length)
+        var randomding=Math.floor(Math.random()*dingen.length)
+        var zin=dieren[randomdiergetal]+ " "+werkwoorden[wwoord]+ " "+dingen[randomding]
+        return zin
+    }
+
+    // element toevoegen
+    function element_toevoegen(){
+        var lijst=document.getElementById("lijst")
+        var regel = document.createElement("p");
+        regel.innerHTML = maak_zin()
+
+        lijst.appendChild(regel)
+    }
+
+</script>
